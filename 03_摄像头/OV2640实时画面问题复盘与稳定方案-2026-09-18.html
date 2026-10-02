@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="小云宝项目" />
+  <meta name="dcterms.date" content="2026-09-18" />
+  <title>小云宝 OV2640 实时画面问题复盘与稳定方案</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">@page {
+size: A4;
+margin: 18mm 16mm 18mm 16mm;
+}
+html {
+font-family: "Microsoft YaHei", "Noto Sans CJK SC", "SimSun", sans-serif;
+font-size: 10.5pt;
+line-height: 1.65;
+color: #20242a;
+}
+body {
+max-width: 178mm;
+margin: 0 auto;
+}
+h1 {
+margin: 1.2em 0 0.55em;
+padding-bottom: 0.22em;
+border-bottom: 1.5px solid #3973a6;
+color: #173c5e;
+font-size: 19pt;
+page-break-after: avoid;
+}
+h2 {
+margin: 1em 0 0.35em;
+color: #24577f;
+font-size: 14pt;
+page-break-after: avoid;
+}
+h3 {
+color: #2b5f86;
+font-size: 11.5pt;
+page-break-after: avoid;
+}
+p {
+margin: 0.35em 0 0.65em;
+text-align: justify;
+}
+ul, ol {
+margin: 0.35em 0 0.75em;
+padding-left: 1.6em;
+}
+li {
+margin: 0.18em 0;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 0.65em 0 1em;
+font-size: 9.3pt;
+page-break-inside: avoid;
+}
+th, td {
+border: 1px solid #aebdca;
+padding: 5px 7px;
+vertical-align: top;
+}
+th {
+background: #eaf1f7;
+color: #173c5e;
+font-weight: 600;
+}
+code {
+font-family: "Cascadia Mono", "Consolas", monospace;
+font-size: 9pt;
+background: #f2f4f6;
+padding: 0.08em 0.25em;
+border-radius: 2px;
+}
+pre {
+margin: 0.65em 0 1em;
+padding: 9px 11px;
+border-left: 3px solid #628db0;
+background: #f4f6f8;
+white-space: pre-wrap;
+word-break: break-all;
+page-break-inside: avoid;
+}
+pre code {
+padding: 0;
+background: transparent;
+}
+blockquote {
+margin: 0.8em 0;
+padding: 0.5em 0.9em;
+border-left: 4px solid #3973a6;
+background: #edf4f9;
+color: #173c5e;
+}
+blockquote p {
+margin: 0;
+}
+hr {
+border: 0;
+border-top: 1px solid #bcc8d1;
+}
+header#title-block-header {
+margin-top: 42mm;
+margin-bottom: 30mm;
+text-align: center;
+page-break-after: always;
+}
+#title-block-header h1.title {
+border: 0;
+color: #173c5e;
+font-size: 26pt;
+line-height: 1.35;
+}
+#title-block-header .subtitle {
+margin-top: 1.4em;
+color: #526c81;
+font-size: 14pt;
+text-align: center;
+}
+#title-block-header .author,
+#title-block-header .date {
+margin-top: 2em;
+color: #53616c;
+text-align: center;
+}
+@media print {
+a {
+color: inherit;
+text-decoration: none;
+}
+h1, h2, h3 {
+break-after: avoid-page;
+}
+pre, table, blockquote {
+break-inside: avoid-page;
+}
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">小云宝 OV2640 实时画面问题复盘与稳定方案</h1>
+<p class="subtitle">ESP32-S3 N16R8 + OV2640（板载 Y1）+ ST7789</p>
+<p class="author">小云宝项目</p>
+<p class="date">2026-09-18</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#1-最终结论" id="toc-1-最终结论">1. 最终结论</a></li>
+<li><a href="#2-最终硬件配置" id="toc-2-最终硬件配置">2.
+最终硬件配置</a>
+<ul>
+<li><a href="#21-摄像头引脚" id="toc-21-摄像头引脚">2.1
+摄像头引脚</a></li>
+<li><a href="#22-st7789-引脚" id="toc-22-st7789-引脚">2.2 ST7789
+引脚</a></li>
+</ul></li>
+<li><a href="#3-已取得的关键证据" id="toc-3-已取得的关键证据">3.
+已取得的关键证据</a>
+<ul>
+<li><a href="#31-rgb565-独立抓帧通过" id="toc-31-rgb565-独立抓帧通过">3.1 RGB565 独立抓帧通过</a></li>
+<li><a href="#32-纯串口-jpeg-连续抓帧通过" id="toc-32-纯串口-jpeg-连续抓帧通过">3.2 纯串口 JPEG
+连续抓帧通过</a></li>
+<li><a href="#33-加入-st7789-后仍通过" id="toc-33-加入-st7789-后仍通过">3.3 加入 ST7789 后仍通过</a></li>
+<li><a href="#34-移回自制-pcb-后多次通过" id="toc-34-移回自制-pcb-后多次通过">3.4 移回自制 PCB 后多次通过</a></li>
+</ul></li>
+<li><a href="#4-故障演变过程" id="toc-4-故障演变过程">4.
+故障演变过程</a>
+<ul>
+<li><a href="#41-第一阶段能识别传感器但没有完整帧" id="toc-41-第一阶段能识别传感器但没有完整帧">4.1
+第一阶段：能识别传感器，但没有完整帧</a></li>
+<li><a href="#42-第二阶段旧实时预览短暂出图但反向卡顿并最终停止" id="toc-42-第二阶段旧实时预览短暂出图但反向卡顿并最终停止">4.2
+第二阶段：旧实时预览短暂出图，但反向、卡顿并最终停止</a></li>
+<li><a href="#43-第三阶段错误恢复逻辑制造了更多假象" id="toc-43-第三阶段错误恢复逻辑制造了更多假象">4.3
+第三阶段：错误恢复逻辑制造了更多假象</a></li>
+<li><a href="#44-第四阶段pid-0000-是诊断程序自身错误" id="toc-44-第四阶段pid-0000-是诊断程序自身错误">4.4 第四阶段：PID 00/00
+是诊断程序自身错误</a></li>
+<li><a href="#45-brownout-的正确定位" id="toc-45-brownout-的正确定位">4.5 Brownout 的正确定位</a></li>
+</ul></li>
+<li><a href="#5-主要根因" id="toc-5-主要根因">5. 主要根因</a>
+<ul>
+<li><a href="#51-首要原因实时预览没有复用已验证的采集路径" id="toc-51-首要原因实时预览没有复用已验证的采集路径">5.1
+首要原因：实时预览没有复用已验证的采集路径</a></li>
+<li><a href="#52-首要原因旧显示方式过于零碎和阻塞" id="toc-52-首要原因旧显示方式过于零碎和阻塞">5.2
+首要原因：旧显示方式过于零碎和阻塞</a></li>
+<li><a href="#53-次要原因恢复策略破坏了可诊断性" id="toc-53-次要原因恢复策略破坏了可诊断性">5.3
+次要原因：恢复策略破坏了可诊断性</a></li>
+</ul></li>
+<li><a href="#6-为什么现在能够稳定实时显示" id="toc-6-为什么现在能够稳定实时显示">6.
+为什么现在能够稳定实时显示</a></li>
+<li><a href="#7-已排除的错误方向" id="toc-7-已排除的错误方向">7.
+已排除的错误方向</a></li>
+<li><a href="#8-并入主程序时必须遵守的规则" id="toc-8-并入主程序时必须遵守的规则">8. 并入主程序时必须遵守的规则</a>
+<ul>
+<li><a href="#81-必须冻结" id="toc-81-必须冻结">8.1 必须冻结</a></li>
+<li><a href="#82-推荐任务边界" id="toc-82-推荐任务边界">8.2
+推荐任务边界</a></li>
+<li><a href="#83-上线前验收" id="toc-83-上线前验收">8.3
+上线前验收</a></li>
+</ul></li>
+<li><a href="#9-冻结文件" id="toc-9-冻结文件">9. 冻结文件</a>
+<ul>
+<li><a href="#91-纯串口硬件基准" id="toc-91-纯串口硬件基准">9.1
+纯串口硬件基准</a></li>
+<li><a href="#92-摄像头--tft-日志基准" id="toc-92-摄像头--tft-日志基准">9.2 摄像头 + TFT 日志基准</a></li>
+<li><a href="#93-稳定实时预览" id="toc-93-稳定实时预览">9.3
+稳定实时预览</a></li>
+</ul></li>
+<li><a href="#10-一句话总结" id="toc-10-一句话总结">10.
+一句话总结</a></li>
+</ul>
+</nav>
+<h1 id="1-最终结论">1. 最终结论</h1>
+<p>本次问题已经通过分层测试闭环。最终确认：</p>
+<ol type="1">
+<li><strong>OV2640 摄像头模块正常。</strong></li>
+<li><strong>ESP32-S3 开发板正常。</strong></li>
+<li><strong>自制 PCB 的摄像头与屏幕连接正常。</strong></li>
+<li>**冻结引脚表正确，不需要改线：**D7=GPIO43、PCLK=GPIO44、VSYNC=GPIO47、HREF=GPIO46、SDA=GPIO1、SCL=GPIO2、XCLK
+不接。</li>
+<li><strong>板载 Y1 晶振正常，DVP 并口时序正常。</strong></li>
+<li><strong>3.26V 摄像头供电、RST、PWDN 和 SCCB
+上拉均正常。</strong></li>
+<li>之前“短暂出图、画面反、特别卡、随后抓帧失败和 ACK/PID
+异常”的主要原因是：<strong>实时预览程序偏离了已经验证的摄像头初始化路径，并且显示与错误恢复策略不合理。</strong></li>
+</ol>
+<p>现在能够稳定显示实时画面，是因为新实现将“已经通过的摄像头采集路径”和“低阻塞的屏幕显示路径”分开处理：</p>
+<blockquote>
+<p>OV2640 先稳定输出 JPEG QVGA → JPEG 独立解码到 160×120 RGB565 缓冲区 →
+ST7789 一次整块 SPI 写入。</p>
+</blockquote>
+<h1 id="2-最终硬件配置">2. 最终硬件配置</h1>
+<h2 id="21-摄像头引脚">2.1 摄像头引脚</h2>
+<table>
+<thead>
+<tr>
+<th>OV2640 信号</th>
+<th style="text-align: right;">ESP32-S3 GPIO</th>
+<th>最终状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D0～D7</td>
+<td style="text-align: right;">16、17、38、39、40、41、42、43</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>PCLK</td>
+<td style="text-align: right;">44</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>VSYNC</td>
+<td style="text-align: right;">47</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>HREF</td>
+<td style="text-align: right;">46</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td style="text-align: right;">1</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>SCL</td>
+<td style="text-align: right;">2</td>
+<td>已通过</td>
+</tr>
+<tr>
+<td>XCLK</td>
+<td style="text-align: right;">不接</td>
+<td>使用模组板载 Y1</td>
+</tr>
+<tr>
+<td>RST</td>
+<td style="text-align: right;">3.3V</td>
+<td>实测约 3.27V</td>
+</tr>
+<tr>
+<td>PWDN</td>
+<td style="text-align: right;">GND</td>
+<td>实测约 0.02V</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td style="text-align: right;">3.3V</td>
+<td>实测约 3.26V</td>
+</tr>
+</tbody>
+</table>
+<p>SDA、SCL 对 3.3V 的实测电阻约为
+6kΩ，说明摄像头模块自身已有上拉，不需要在 PCB 上再并联 4.7kΩ。</p>
+<h2 id="22-st7789-引脚">2.2 ST7789 引脚</h2>
+<table>
+<thead>
+<tr>
+<th>ST7789 信号</th>
+<th style="text-align: right;">ESP32-S3 GPIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BL</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td>CS</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>DC</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>RST</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>MOSI/SDA</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td>SCK/SCL</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>VCC</td>
+<td style="text-align: right;">3.3V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td style="text-align: right;">GND</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-已取得的关键证据">3. 已取得的关键证据</h1>
+<h2 id="31-rgb565-独立抓帧通过">3.1 RGB565 独立抓帧通过</h2>
+<p>早期基准程序在屏幕上得到：</p>
+<pre class="text"><code>PASS 5/5
+ACK YES PID 26 VER 42
+P7917 V18 H78766
+FRAME 160x120 38400B
+STATUS: PASS</code></pre>
+<p>这组结果证明：</p>
+<ul>
+<li>SCCB 可以识别 OV2640；</li>
+<li>PID=0x26、VER=0x42 正确；</li>
+<li>PCLK、VSYNC、HREF 均有活动；</li>
+<li>D0～D7 并口能够形成完整帧；</li>
+<li>RGB565 QQVGA（160×120、38400字节）可以连续抓取。</li>
+</ul>
+<h2 id="32-纯串口-jpeg-连续抓帧通过">3.2 纯串口 JPEG 连续抓帧通过</h2>
+<p>将摄像头单独用杜邦线连接到 ESP32-S3 后，稳定输出：</p>
+<pre class="text"><code>[FRAME] #7  OK 320x240, 8378 bytes, format=4, get=1ms, changed=YES
+[FRAME] #8  OK 320x240, 8378 bytes, format=4, get=1ms, changed=YES
+[FRAME] #9  OK 320x240, 8317 bytes, format=4, get=1ms, changed=YES
+...
+[FRAME] #20 OK 320x240, 7686 bytes, format=4, get=1ms, changed=YES</code></pre>
+<p><code>format=4</code> 为 JPEG。帧长随画面内容在约 7～9KB
+间变化，哈希持续变化，说明取到的是不断更新的新画面，而不是重复旧缓冲区。<code>fb_get</code>
+通常为 0～1ms，说明摄像头 DMA 和帧缓冲工作稳定。</p>
+<h2 id="33-加入-st7789-后仍通过">3.3 加入 ST7789 后仍通过</h2>
+<p>随后在 ESP32-S3 开发板上同时连接 OV2640 与
+ST7789，将串口日志同步输出到屏幕，抓帧测试仍然通过。</p>
+<p>这一步排除了：</p>
+<ul>
+<li>TFT SPI 接线与摄像头 DVP 引脚冲突；</li>
+<li>ST7789 初始化导致摄像头无法工作；</li>
+<li>屏幕供电导致持续性摄像头掉电。</li>
+</ul>
+<h2 id="34-移回自制-pcb-后多次通过">3.4 移回自制 PCB 后多次通过</h2>
+<p>相同的“摄像头 + TFT 日志测试”移回自制 PCB
+后重复运行无异常。最终稳定实时预览也在该硬件上正常显示。</p>
+<p>因此，自制 PCB 不是本次持续故障的根因。早期出现的 ACK NO、PID FF 和
+Brownout 不能再解释为 PCB 固有错误。</p>
+<h1 id="4-故障演变过程">4. 故障演变过程</h1>
+<h2 id="41-第一阶段能识别传感器但没有完整帧">4.1
+第一阶段：能识别传感器，但没有完整帧</h2>
+<p>早期曾出现 PID 正确但 PCLK、VSYNC、HREF 为零，或者初始化成功但
+<code>fb_get</code> 超时。此时 SCCB 与图像并口属于两个不同层次：</p>
+<ul>
+<li>SCCB 正常，只代表可以读写传感器寄存器；</li>
+<li>真正抓帧还要求 Y1、PLL、PCLK、VSYNC、HREF、D0～D7 和 LCD_CAM/DMA
+全部匹配。</li>
+</ul>
+<p>在采用与板载 Y1 相匹配的参数，并执行 JPEG 12/24/20MHz
+顺序尝试、RGB565 12MHz 回退后，抓帧恢复。</p>
+<h2 id="42-第二阶段旧实时预览短暂出图但反向卡顿并最终停止">4.2
+第二阶段：旧实时预览短暂出图，但反向、卡顿并最终停止</h2>
+<p>旧预览曾短暂显示画面，证明采集链路一度已经建立。但显示实现存在两类风险：</p>
+<ol type="1">
+<li>逐行或大量小块 SPI 写入，造成明显卡顿；</li>
+<li>在摄像头 DMA 和帧缓冲仍工作的同时长时间占用
+CPU/显示流程，增大下一帧超时概率。</li>
+</ol>
+<p>另外，旧代码在初始化后继续操作 PCLK、VSYNC、HREF 的 GPIO
+模式。即使这未必是每一次失败的唯一原因，也属于不必要且高风险的侵入式诊断。稳定版已完全禁止初始化后再对这些
+DVP 引脚执行 <code>pinMode()</code>。</p>
+<h2 id="43-第三阶段错误恢复逻辑制造了更多假象">4.3
+第三阶段：错误恢复逻辑制造了更多假象</h2>
+<p>为了自动恢复，旧预览先后加入过：</p>
+<ul>
+<li>反复 <code>esp_camera_deinit()</code> /
+<code>esp_camera_init()</code>；</li>
+<li><code>Wire.end()</code>；</li>
+<li>GPIO reset；</li>
+<li>高频 SCCB 重试；</li>
+<li>失败后覆盖上一次 ACK/PID 状态。</li>
+</ul>
+<p>这些处理没有保留“第一次失败现场”，反而可能让后续日志只显示最后一次失败结果。因此出现了：</p>
+<pre class="text"><code>ACK NO
+PID FF
+ESP_ERR_NOT_SUPPORTED</code></pre>
+<p>这并不能证明摄像头、PCB或连线已经永久损坏。当回到冻结基准程序后，同一硬件再次通过，说明这些现象主要来自测试状态被反复修改和错误结果被覆盖。</p>
+<h2 id="44-第四阶段pid-0000-是诊断程序自身错误">4.4 第四阶段：PID 00/00
+是诊断程序自身错误</h2>
+<p>新的纯串口程序最初出现：</p>
+<pre class="text"><code>ACK=YES, PID=0x00, VER=0x00</code></pre>
+<p>OV2640 的 <code>0x0A/0x0B</code> 身份寄存器位于 Sensor
+Bank。读取前必须：</p>
+<pre class="text"><code>向寄存器 0xFF 写入 0x01</code></pre>
+<p>最初测试程序遗漏了 Bank Select，导致总线已经
+ACK，但读取的是错误寄存器页。补上 Sensor Bank 选择后，PID/VER 正常恢复为
+26/42。</p>
+<p>这个错误说明：<strong>诊断代码本身也必须经过验证，不能把每个异常日志直接归咎于硬件。</strong></p>
+<h2 id="45-brownout-的正确定位">4.5 Brownout 的正确定位</h2>
+<p>过程中确实记录过一次：</p>
+<pre class="text"><code>rst BROWNOUT</code></pre>
+<p>但后续冷启动显示 <code>POWERON</code>，摄像头供电稳定为约
+3.26V，并且同一 PCB 能连续抓帧和实时显示。因此：</p>
+<ul>
+<li>Brownout 是当时插拔、启动瞬态或测试过程中的次生事件；</li>
+<li>它可能加重某一次失败；</li>
+<li>但它不是最终持续故障的主要原因，也不能用于否定 PCB。</li>
+</ul>
+<h1 id="5-主要根因">5. 主要根因</h1>
+<h2 id="51-首要原因实时预览没有复用已验证的采集路径">5.1
+首要原因：实时预览没有复用已验证的采集路径</h2>
+<p>纯 RGB565 直接初始化曾出现：</p>
+<pre class="text"><code>[WARMUP] FAIL
+[FRAME] FAIL: fb_get returned null after 4000ms</code></pre>
+<p>而使用冻结顺序后，JPEG QVGA 可以连续稳定取帧。因此稳定版采用：</p>
+<ol type="1">
+<li>JPEG QVGA + PSRAM，PLL参数按 12MHz、24MHz、20MHz 顺序尝试；</li>
+<li>仅在 JPEG 路径不可用时，回退到 RGB565 QQVGA + DRAM + 12MHz；</li>
+<li>每一种模式初始化后先验证 DVP 活动，再进入抓帧。</li>
+</ol>
+<p>关键不是简单地把某个数字改成12MHz，而是保持“已验证的完整初始化顺序、像素格式、帧尺寸、缓冲位置和抓取模式”一致。</p>
+<h2 id="52-首要原因旧显示方式过于零碎和阻塞">5.2
+首要原因：旧显示方式过于零碎和阻塞</h2>
+<p>旧预览把一帧拆成很多次 SPI
+操作。即使摄像头已经抓到帧，这种显示方式也会产生：</p>
+<ul>
+<li>帧率很低；</li>
+<li>肉眼可见卡顿；</li>
+<li>长时间持有帧缓冲；</li>
+<li>摄像头下一帧等待或超时风险上升。</li>
+</ul>
+<p>稳定版改为：</p>
+<ol type="1">
+<li>OV2640 输出 JPEG QVGA；</li>
+<li><code>TJpg_Decoder</code> 将 JPEG 缩放解码为 160×120 RGB565；</li>
+<li>解码结果写入独立的 38400字节缓冲区；</li>
+<li>ST7789 使用一次 <code>setAddrWindow</code> 和一次整块
+<code>writePixels</code> 完成刷新；</li>
+<li>预览循环限制在约12fps，为摄像头 DMA 留出时间。</li>
+</ol>
+<p>这也是“现在流畅且不再抓帧超时”的核心原因。</p>
+<h2 id="53-次要原因恢复策略破坏了可诊断性">5.3
+次要原因：恢复策略破坏了可诊断性</h2>
+<p>稳定版不再遇错就无限反复初始化。抓帧失败和解码失败分别累计：</p>
+<pre class="text"><code>#帧数  fps  G抓帧失败次数  D解码/显示失败次数</code></pre>
+<p>这样可以区分：</p>
+<ul>
+<li><code>G</code>增加：摄像头/DMA取帧失败；</li>
+<li><code>D</code>增加：JPEG解码或TFT显示失败；</li>
+<li>两者均为0：采集与显示链路都正常。</li>
+</ul>
+<p>错误现场被保留后，不会再发生“第一次其实成功，后续重试失败却覆盖全部状态”的情况。</p>
+<h1 id="6-为什么现在能够稳定实时显示">6. 为什么现在能够稳定实时显示</h1>
+<p>当前稳定链路如下：</p>
+<pre class="text"><code>上电稳定
+  ↓
+释放 UART0 对 GPIO43/44 的占用
+  ↓
+SCCB 切换 Sensor Bank，确认 PID=26 / VER=42
+  ↓
+按冻结顺序初始化 JPEG QVGA/PSRAM
+  ↓
+确认 PCLK、VSYNC、HREF 均有活动
+  ↓
+丢弃启动阶段前两帧
+  ↓
+fb_get 获取 JPEG
+  ↓
+JPEG 缩放解码到独立 160×120 RGB565 缓冲
+  ↓
+ST7789 单次整块 SPI 刷新
+  ↓
+归还摄像头 frame buffer
+  ↓
+循环并统计 FPS、抓帧失败、解码失败</code></pre>
+<p>这里有三个关键隔离：</p>
+<ol type="1">
+<li>**采集与显示格式隔离：**摄像头保持稳定
+JPEG，不强迫其直接承担屏幕格式。</li>
+<li>**摄像头帧缓冲与屏幕缓冲隔离：**显示使用独立 RGB565
+缓冲，不长时间占用 camera framebuffer。</li>
+<li>**故障类型隔离：**抓帧失败和解码失败分别统计。</li>
+</ol>
+<h1 id="7-已排除的错误方向">7. 已排除的错误方向</h1>
+<p>以下项目已通过实测排除，不应再次作为首要怀疑对象：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>排除依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7=43、PCLK=44 错误</td>
+<td>RGB565与JPEG均已连续抓帧</td>
+</tr>
+<tr>
+<td>HREF应接GPIO48</td>
+<td>实际GPIO46已通过；GPIO48保留板载RGB灯</td>
+</tr>
+<tr>
+<td>模块没有晶振</td>
+<td>PCLK/VSYNC/HREF有活动且连续出图</td>
+</tr>
+<tr>
+<td>摄像头3.3V不足</td>
+<td>稳态实测约3.26V并通过</td>
+</tr>
+<tr>
+<td>RST/PWDN错误</td>
+<td>RST约3.27V、PWDN约0.02V并通过</td>
+</tr>
+<tr>
+<td>PCB缺少SCCB上拉</td>
+<td>SDA/SCL对3.3V约6kΩ，模块自带上拉</td>
+</tr>
+<tr>
+<td>10cm杜邦线太长</td>
+<td>20cm曾通过，10cm最终也连续通过</td>
+</tr>
+<tr>
+<td>摄像头模块损坏</td>
+<td>更换模块后现象相同，随后同一链路通过</td>
+</tr>
+<tr>
+<td>自制PCB布线错误</td>
+<td>TFT日志测试与实时预览移回PCB后多次通过</td>
+</tr>
+</tbody>
+</table>
+<h1 id="8-并入主程序时必须遵守的规则">8. 并入主程序时必须遵守的规则</h1>
+<h2 id="81-必须冻结">8.1 必须冻结</h2>
+<ul>
+<li>不改 D7=43；</li>
+<li>不改 PCLK=44；</li>
+<li>不接 XCLK，继续使用板载 Y1；</li>
+<li>使用 USB CDC 输出日志，初始化前释放 UART0；</li>
+<li>摄像头优先使用已验证 JPEG QVGA + PSRAM 路径；</li>
+<li>初始化后不再通过 <code>pinMode()</code>修改PCLK、VSYNC、HREF；</li>
+<li>不让屏幕逐行、小块、高频阻塞刷新；</li>
+<li>不在主循环中反复执行 JPEG 编码或摄像头重初始化。</li>
+</ul>
+<h2 id="82-推荐任务边界">8.2 推荐任务边界</h2>
+<ul>
+<li>摄像头任务只负责取 JPEG 帧；</li>
+<li>视觉上传任务复制或短暂持有 JPEG 后立即归还 framebuffer；</li>
+<li>屏幕预览任务使用独立解码缓冲；</li>
+<li>主对话任务不得等待摄像头解码或SPI刷新；</li>
+<li>自动重试必须有限次数、带退避，并保留第一次错误码。</li>
+</ul>
+<h2 id="83-上线前验收">8.3 上线前验收</h2>
+<ol type="1">
+<li>冷启动10次，PID/VER识别成功率100%；</li>
+<li>连续抓取至少500帧，<code>G=0</code>；</li>
+<li>连续预览10分钟，<code>D=0</code>且无冻结；</li>
+<li>同时运行按键扫描，确认唤醒/打断无明显延迟；</li>
+<li>再开启Wi-Fi和视觉上传，观察PSRAM、堆内存和帧率；</li>
+<li>最后加入语音播放，检查SPI、DMA和任务优先级是否相互阻塞。</li>
+</ol>
+<h1 id="9-冻结文件">9. 冻结文件</h1>
+<h2 id="91-纯串口硬件基准">9.1 纯串口硬件基准</h2>
+<pre class="text"><code>C:\Users\xijie\Documents\Codex\2026-09-05\longlinshuoxi-wav\
+ov2640_serial_only_test\ov2640_serial_only_test.ino</code></pre>
+<p>SHA-256：</p>
+<pre class="text"><code>0A1CB77F771F96D09FE58C9D8079D26BC5E22EF6900E2691F1EB100F3BC1C502</code></pre>
+<h2 id="92-摄像头--tft-日志基准">9.2 摄像头 + TFT 日志基准</h2>
+<pre class="text"><code>C:\Users\xijie\Documents\Codex\2026-09-05\longlinshuoxi-wav\
+ov2640_tft_serial_test\ov2640_tft_serial_test.ino</code></pre>
+<p>SHA-256：</p>
+<pre class="text"><code>5DF4A06A6071A09F649295EAF847D4C76B5CAB81B32E80289DF55C1B3054975E</code></pre>
+<h2 id="93-稳定实时预览">9.3 稳定实时预览</h2>
+<pre class="text"><code>C:\Users\xijie\Documents\Codex\2026-09-05\longlinshuoxi-wav\
+ov2640_live_preview_stable\ov2640_live_preview_stable.ino</code></pre>
+<p>SHA-256：</p>
+<pre class="text"><code>BCCD61A7A56EDAF899CB8A265C688BA4B3B2EABF2B3DAA5E6E524363558E8F7C</code></pre>
+<h1 id="10-一句话总结">10. 一句话总结</h1>
+<blockquote>
+<p>硬件一直具备工作条件；真正让实时画面从“偶发、卡顿、失联”变成稳定运行的关键，是回到已验证的
+JPEG 摄像头初始化路径，正确读取 OV2640
+寄存器页，停止侵入式和无限重试式诊断，并把 JPEG 解码与 ST7789
+刷屏改成独立缓冲加单次整块 SPI 传输。</p>
+</blockquote>
+</body>
+</html>

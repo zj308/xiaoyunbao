@@ -1,0 +1,309 @@
+iCAN 视觉端最终模型交付说明
+========================================
+
+一、最终交付方案
+----------------------------------------
+Fusion V1   → INT8 QDQ ONNX
+Fear Aux V2 → INT8 QDQ ONNX
+Local V1    → FP32
+
+最终三个模型进行类别级概率融合，输出 5 类情绪。
+
+
+二、视觉端需要同时交付的数据
+----------------------------------------
+单片机/嵌入式负责人不仅需要模型文件，还需要与模型匹配的：
+
+1. Face ROI（整脸 ROI）
+2. Left Eye ROI（左眼 ROI）
+3. Right Eye ROI（右眼 ROI）
+4. Mouth ROI（嘴部 ROI）
+5. Landmark 特征
+
+以上 ROI 和 Landmark 必须来自同一帧、同一张人脸。
+不能跨帧、跨人脸混用。
+
+
+三、各模型输入格式与尺寸
+----------------------------------------
+【1】Fusion V1 INT8
+模型：fusion_v1_int8_realdata_qdq.onnx
+
+输入数据：
+- Face ROI：整张人脸 ROI
+- Landmark：16 维特征
+
+Face ROI 原始裁剪尺寸：
+- 由当前人脸关键点/人脸框动态裁剪，因此原始宽高不固定
+- 最终送入模型前统一 Resize 为：224 × 224
+
+图像输入：
+- 3 通道
+- 训练/推理代码先转灰度，再复制/转换为 3 通道
+- 最终张量尺寸：1 × 3 × 224 × 224（batch=1 时）
+- 归一化：Mean=[0.5,0.5,0.5]，Std=[0.5,0.5,0.5]
+
+Landmark：
+- 输入特征维度：16
+- 先按照训练阶段保存的 mean/std 做标准化
+
+
+【2】Fear Aux V2 INT8
+模型：fear_aux_v2_int8_realdata_qdq.onnx
+
+输入数据：
+- Fusion V1 的 1280 维 image feature
+- Landmark：16 维特征
+
+输入尺寸（batch=1 时）：
+- image_feature：1 × 1280
+- landmark：1 × 16
+
+注意：
+Fear Aux V2 不直接输入 Face ROI 图像。
+必须使用 Fusion V1 图像分支产生的 1280 维 image feature。
+
+
+【3】Local Visual V1 FP32
+模型：local_visual_v1.pth
+
+输入数据：
+- Left Eye ROI
+- Right Eye ROI
+- Mouth ROI
+
+三个 ROI 的原始裁剪宽高可以随人脸大小变化，不要求固定原始尺寸。
+最终进入模型前统一 Resize 为：224 × 224。
+
+三个局部图像最终张量尺寸（batch=1 时）：
+- Left Eye：1 × 3 × 224 × 224
+- Right Eye：1 × 3 × 224 × 224
+- Mouth：1 × 3 × 224 × 224
+
+局部图像使用 RGB 三通道，并按 Local Visual V1 的 ImageNet 风格参数归一化：
+Mean=[0.485,0.456,0.406]
+Std =[0.229,0.224,0.225]
+
+
+四、ROI 的实际裁剪规则
+----------------------------------------
+当前视觉程序通过 Landmark 动态计算局部 ROI。
+
+左眼 ROI：
+- 使用 LEFT_EYE_BROW 关键点集合
+- padding_x = 0.55
+- padding_y = 1.00
+
+右眼 ROI：
+- 使用 RIGHT_EYE_BROW 关键点集合
+- padding_x = 0.55
+- padding_y = 1.00
+
+嘴部 ROI：
+- 使用 MOUTH 关键点集合
+- padding_x = 0.80
+- padding_y = 1.20
+
+ROI 的原始裁剪尺寸不固定；裁剪后再统一 Resize 到 224×224。
+
+因此嵌入式端需要保证的是：
+“关键点定位 → 按相同规则裁剪 ROI → Resize(224,224) → 正确颜色/归一化”。
+
+不要把原始 ROI 强制设成某个固定宽高后再直接输入模型，
+除非严格复现当前视觉代码的裁剪与预处理流程。
+
+
+五、Landmark 数据要求
+----------------------------------------
+摄像头程序使用 MediaPipe Face Landmarker 获取人脸关键点。
+当前程序最终送入模型的是 16 维 Landmark 特征，而不是全部 478 个关键点直接送入模型。
+
+流程：
+MediaPipe 关键点
+→ 提取 16 维 Landmark 特征
+→ 使用 Fusion V1 保存的 landmark_mean / landmark_std 标准化
+→ 输入 Fusion V1 和 Fear Aux V2
+
+要求：
+- Landmark 必须与 Face ROI、局部 ROI 属于同一张脸
+- 维度必须为 16
+- 特征顺序必须保持一致
+- 不允许自行重排、删除或修改维度
+- 标准化方式必须与当前模型一致
+
+
+六、完整视觉数据流
+----------------------------------------
+Camera Frame
+    ↓
+MediaPipe Face Landmarker
+    ↓
+人脸关键点
+    ↓
+提取 16 维 Landmark
+    ↓
+┌──────────────────────────────────────────────┐
+│ 当前人脸                                     │
+│                                              │
+│ Face ROI          → Fusion V1                │
+│ Landmark(16)      → Fusion V1 / Fear V2      │
+│                                              │
+│ Left Eye ROI      → Local Visual V1          │
+│ Right Eye ROI     → Local Visual V1          │
+│ Mouth ROI         → Local Visual V1          │
+└──────────────────────────────────────────────┘
+
+Fusion V1
+    ↓
+5 类输出 + 1280 维 image feature
+    ↓
+Fear Aux V2
+    ↓
+5 类输出
+
+Local Visual V1
+    ↓
+5 类输出
+
+三个模型概率
+    ↓
+Classwise Probability Fusion
+    ↓
+最终 5 类情绪
+
+
+七、最终类别顺序
+----------------------------------------
+0 = angry    （生气）
+1 = fear     （恐惧）
+2 = happy    （开心）
+3 = neutral  （中性）
+4 = surprise （惊讶）
+
+嵌入式端必须保持以上编号和顺序。
+
+
+八、最终类别级融合权重
+----------------------------------------
+CLASSWISE_WEIGHTS = [
+    [0.685, 0.115, 0.200],  # angry
+    [0.625, 0.200, 0.175],  # fear
+    [0.750, 0.055, 0.195],  # happy
+    [0.760, 0.095, 0.145],  # neutral
+    [0.875, 0.040, 0.085],  # surprise
+]
+
+每行对应一个最终类别。
+每列依次对应：
+第1列 = Fusion V1
+第2列 = Fear Aux V2
+第3列 = Local Visual V1
+
+最终选择融合概率最大的类别作为预测结果。
+
+
+九、最终模型大小
+----------------------------------------
+Fusion V1 INT8：约 2.67 MB
+Fear Aux V2 INT8：约 0.10 MB
+Local Visual V1 FP32：约 12.37 MB
+
+三个最终模型文件合计：约 15.14 MB
+
+说明：
+这是模型文件/参数规模，不等于运行时完整 RAM 占用。
+实际运行还需要推理框架、输入张量、中间张量以及图像处理内存。
+
+
+十、量化验证结果
+----------------------------------------
+Fusion V1：
+FP32 Accuracy：76.7661%
+INT8 Accuracy：76.5886%
+Accuracy Δ：-0.1775 pp
+
+Fear Aux V2：
+FP32 Accuracy：76.4643%
+INT8 Accuracy：76.4111%
+Accuracy Δ：-0.0532 pp
+
+Local Visual V1：
+最终部署版本使用 FP32。
+
+Local Visual V1 的 INT8 实验版本真实测试准确率明显下降，
+因此不作为最终部署模型。
+
+
+十一、最终交付文件
+----------------------------------------
+final_model/
+│
+├─ fusion_v1_int8_realdata_qdq.onnx
+├─ fear_aux_v2_int8_realdata_qdq.onnx
+├─ local_visual_v1.pth
+├─ final_emotion_model.py
+└─ README.txt
+
+其中 final_emotion_model.py 为视觉端完整推理参考代码。
+
+
+十二、嵌入式端最重要的接口关系
+----------------------------------------
+Face ROI
+    → 224×224×3
+    → Fusion V1 INT8
+
+Landmark
+    → 16 维
+    → 标准化
+    → Fusion V1 INT8
+    → Fear Aux V2 INT8
+
+Fusion image feature
+    → 1280 维
+    → Fear Aux V2 INT8
+
+Left Eye ROI
+    → Resize 224×224
+    → 3 通道 RGB
+    → Local Visual V1 FP32
+
+Right Eye ROI
+    → Resize 224×224
+    → 3 通道 RGB
+    → Local Visual V1 FP32
+
+Mouth ROI
+    → Resize 224×224
+    → 3 通道 RGB
+    → Local Visual V1 FP32
+
+三个模型概率
+    → 固定 CLASSWISE_WEIGHTS
+    → 最终 5 类情绪
+
+
+十三、重要说明
+----------------------------------------
+1. ROI 原始裁剪尺寸不是固定值，最终统一 Resize 到 224×224。
+2. Face ROI 在当前代码中进入 Fusion 前转换为灰度并形成 3 通道输入。
+3. Local 的三个 ROI 使用 RGB 三通道。
+4. Landmark 最终为 16 维，不是直接把 478 个 MediaPipe 点作为模型输入。
+5. ROI、Landmark 必须来自同一帧、同一张人脸。
+6. Local Visual V1 的最终版本保持 FP32，不使用当前失败的 INT8 版本。
+7. 不要修改原始 .pth 模型、Landmark 特征顺序和融合权重。
+
+
+十四、版本结论
+----------------------------------------
+当前视觉端稳定交付版本：
+
+Fusion INT8
++
+Fear INT8
++
+Local FP32
++
+ROI / Landmark 配套数据处理
+
+该版本作为当前视觉端稳定交付版本。

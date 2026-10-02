@@ -1,0 +1,16 @@
+default_fqbn: esp32:esp32:esp32s3:JTAGAdapter=default,PSRAM=opi,FlashMode=qio,FlashSize=16M,LoopCore=1,EventsCore=1,USBMode=hwcdc,CDCOnBoot=cdc,MSCOnBoot=default,DFUOnBoot=default,UploadMode=default,PartitionScheme=app3M_fat9M_16MB,CPUFreq=240,UploadSpeed=921600,DebugLevel=none,EraseFlash=none
+profiles:
+  xiaoyunbao:
+    fqbn: esp32:esp32:esp32s3:JTAGAdapter=default,PSRAM=opi,FlashMode=qio,FlashSize=16M,LoopCore=1,EventsCore=1,USBMode=hwcdc,CDCOnBoot=cdc,MSCOnBoot=default,DFUOnBoot=default,UploadMode=default,PartitionScheme=app3M_fat9M_16MB,CPUFreq=240,UploadSpeed=921600,DebugLevel=none,EraseFlash=none
+    platforms:
+      - platform: esp32:esp32 (3.3.11)
+    libraries:
+      - dir: C:/Dev/Arduino/libraries/esp32_opus
+      - dir: C:/Dev/Arduino/libraries/WebSockets
+      - dir: C:/Dev/Arduino/libraries/Adafruit_GFX_Library
+      - dir: C:/Dev/Arduino/libraries/Adafruit_ST7735_and_ST7789_Library
+      - dir: C:/Dev/Arduino/libraries/Adafruit_BusIO
+      - dir: C:/Dev/Arduino/libraries/Adafruit_seesaw_Library
+      - dir: C:/Dev/Arduino/libraries/U8g2_for_Adafruit_GFX
+      - dir: C:/Dev/Arduino/libraries/TJpg_Decoder
+default_profile: xiaoyunbao

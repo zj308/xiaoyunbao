@@ -1,0 +1,6 @@
+# 脱敏模板。不要把真实 API Key、密码或令牌提交到 Git/网盘。
+xiyunbao:
+  tts_voice: "qwen-audio-3.0-tts-flash-longtongxuxian"
+  # 情绪 ONNX 目录。默认是 relay-server/models/emotion
+  emotion_model_dir: "models/emotion"
+  # 其余参数以服务器现有 .config.yaml 为准，复制后再补齐密钥。

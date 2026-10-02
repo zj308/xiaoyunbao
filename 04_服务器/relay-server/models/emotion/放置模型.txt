@@ -1,0 +1,6 @@
+把下列 ONNX 放到本目录后重启中转服务：
+
+fusion_v1_int8_realdata_qdq.onnx
+local_visual_v1_fp32_realdata.onnx
+
+没有这两个文件时，设备仍能上传 JPEG，但服务器不会识别情绪。

@@ -1,0 +1,431 @@
+[
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.5,
+      "snapYSize": 0.5,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.5,
+      "snapYSize": 0.5,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 100,
+      "gridYSize": 100,
+      "snapXSize": 5,
+      "snapYSize": 5,
+      "altSnapXSize": 1,
+      "altSnapYSize": 1,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "multiGridRatio": 5,
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 2,
+      "gridYSize": 2,
+      "snapXSize": 2,
+      "snapYSize": 2,
+      "altSnapXSize": 5,
+      "altSnapYSize": 5,
+      "gridType": "OUTLETS",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 3.937008,
+      "gridYSize": 3.937008,
+      "snapXSize": 1.968504,
+      "snapYSize": 1.968504,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 23,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.5,
+      "snapYSize": 0.5,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.03937,
+      "snapYSize": 0.03937,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.5,
+      "snapYSize": 0.5,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.03937,
+      "snapYSize": 0.03937,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.03937,
+      "snapYSize": 0.03937,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.03937,
+      "snapYSize": 0.03937,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.03937,
+      "snapYSize": 0.03937,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 10,
+      "gridYSize": 10,
+      "snapXSize": 0.5,
+      "snapYSize": 0.5,
+      "gridType": "NONE",
+      "multiGridType": "NONE",
+      "highlightValue": 0.5
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 1,
+      "id": "CANVAS"
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0
+    }
+  },
+  {
+    "head": {
+      "type": "CANVAS",
+      "ticket": 17518,
+      "id": "CANVAS",
+      "firstTicket": 6286
+    },
+    "body": {
+      "originX": 0,
+      "originY": 0,
+      "unit": "mm",
+      "gridXSize": 5,
+      "gridYSize": 5,
+      "snapXSize": 5,
+      "snapYSize": 5,
+      "altSnapXSize": 1,
+      "altSnapYSize": 1,
+      "gridType": "OUTLETS",
+      "multiGridType": "NONE",
+      "multiGridRatio": 5,
+      "highlightValue": 0.5
+    }
+  }
+]

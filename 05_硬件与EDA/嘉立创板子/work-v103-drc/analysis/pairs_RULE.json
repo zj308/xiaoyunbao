@@ -1,0 +1,1296 @@
+[
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 132,
+      "id": "[\"RULE\",\"SAFE\",\"safeClearance\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                6
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6
+              ],
+              [
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                10,
+                11.8,
+                11.8,
+                11.8
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6,
+                11.8
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 133,
+      "id": "[\"RULE\",\"OTHER\",\"otherClearance\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "deviceClearance": 0,
+        "thru2SmdClearance": 0,
+        "holeClearance": 11.8
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 134,
+      "id": "[\"RULE\",\"TRACK\",\"trackWidth\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 5,
+              "stroDef": 10,
+              "stroMax": 100
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 135,
+      "id": "[\"RULE\",\"NET_LENGTH\",\"netLength\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "netLenMin": 0,
+        "netLenMax": 0
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 136,
+      "id": "[\"RULE\",\"DIFFER_ENTAIL\",\"differentialPair\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "stroWidth": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 5,
+              "stroDef": 10,
+              "stroMax": 100
+            }
+          ]
+        },
+        "spacing": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "spacMin": 6,
+              "spacDef": 6
+            }
+          ]
+        },
+        "differPairLenTolerMax": 10
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 137,
+      "id": "[\"RULE\",\"BLIND\",\"blindVia\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "blinds": {
+          "content": []
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 138,
+      "id": "[\"RULE\",\"RADIUS\",\"viaSize\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "minRadius": 9.8425,
+        "defRadius": 12.0079,
+        "maxRadius": 196.8504,
+        "minInner": 5.9055,
+        "defInner": 6.0039,
+        "maxInner": 118.1102
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 139,
+      "id": "[\"RULE\",\"PLANE\",\"innerPlane\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoWidth": 10,
+              "spoSpac": 10,
+              "spoAng": 90
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 140,
+      "id": "[\"RULE\",\"COPPER\",\"copperRegion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "sglPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoWidth": 10,
+              "spoSpac": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoWidth": 10,
+              "spoSpac": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 141,
+      "id": "[\"RULE\",\"PASTE\",\"pasteMaskExpansion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "padTopExpan": 0,
+        "padBotExpan": 0,
+        "testPointTopExpan": -1000,
+        "testPointBotExpan": -1000
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 142,
+      "id": "[\"RULE\",\"SOLDER\",\"solderMaskExpansion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "padTopExpan": 2,
+        "padBotExpan": 2,
+        "viaTopExpan": -1000,
+        "viaBotExpan": -1000,
+        "testPointTopExpan": 2,
+        "testPointBotExpan": 2
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 143,
+      "id": "[\"RULE\",\"AUTO_ROUTER\",\"Common\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "routingCorner": "L45",
+        "isKeep": true,
+        "viaQuantity": "LESS",
+        "routingEffectPriority": "SPEED_FIRST",
+        "layers": [
+          1,
+          2,
+          12
+        ],
+        "ignoreNets": []
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 144,
+      "id": "[\"RULE\",\"SAFE\",\"Plane_innerPlane\"]"
+    },
+    "body": {
+      "ruleState": 0,
+      "ruleContext": {
+        "unit": "mm",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                6
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6
+              ],
+              [
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                10,
+                11.8,
+                11.8,
+                11.8
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6,
+                11.8
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 145,
+      "id": "[\"RULE\",\"SAFE\",\"Copper_copperRegion\"]"
+    },
+    "body": {
+      "ruleState": 0,
+      "ruleContext": {
+        "unit": "mm",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                6
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6
+              ],
+              [
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                10,
+                11.8,
+                11.8,
+                11.8
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6,
+                11.8
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 371,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness1oz\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroDef": 0.254,
+              "stroMax": 2.54,
+              "stroMin": 0.127
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 372,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness2oz\"]"
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mm",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroDef": 0.254,
+              "stroMax": 2.54,
+              "stroMin": 0.203
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6358,
+      "id": "[\"RULE\",\"SAFE\",\"copperThickness1oz\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                4.0157
+              ],
+              [
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              [
+                11.811,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                11.811,
+                6
+              ],
+              [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                10,
+                6,
+                6,
+                6
+              ],
+              [
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                11.8,
+                10,
+                11.8,
+                11.8,
+                11.8
+              ],
+              [
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                10,
+                6.929,
+                6.929,
+                6.929,
+                6.929
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6359,
+      "id": "[\"RULE\",\"SAFE\",\"copperThickness2oz\"]"
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mm",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                7.9921
+              ],
+              [
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              [
+                11.811,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                10,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                10,
+                5.9843,
+                5.9843
+              ],
+              [
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                5.9843,
+                10,
+                5.9843,
+                5.9843,
+                5.9843
+              ],
+              [
+                11.811,
+                11.811,
+                11.811,
+                11.811,
+                11.811,
+                11.811,
+                11.811,
+                10,
+                11.811,
+                11.811,
+                11.811
+              ],
+              [
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                6.929,
+                10,
+                6.929,
+                6.929,
+                6.929,
+                6.929
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6360,
+      "id": "[\"RULE\",\"OTHER\",\"otherClearance\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "deviceClearance": 0,
+        "thru2SmdClearance": 0,
+        "holeClearance": 11.811
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6361,
+      "id": "[\"RULE\",\"CREEPAGE\",\"creepage\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "creepageDistance": 0,
+        "ignoreLayer": true
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6362,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness1oz\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 5,
+              "stroDef": 10,
+              "stroMax": 100
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6363,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness2oz\"]"
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mm",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 7.9921,
+              "stroDef": 10,
+              "stroMax": 100
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6364,
+      "id": "[\"RULE\",\"NET_LENGTH\",\"netLength\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "netLenMin": 0,
+        "netLenMax": 0
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6365,
+      "id": "[\"RULE\",\"NET_LENGTH_TOLERANCE\",\"netLengthTolerance\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "netLengthTolerance": 1000
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6366,
+      "id": "[\"RULE\",\"DIFFER_ENTAIL\",\"differentialPair\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "stroWidth": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 5,
+              "stroMax": 100,
+              "stroDef": 10
+            }
+          ]
+        },
+        "spacing": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "spacMin": 6,
+              "spacDef": 6
+            }
+          ]
+        },
+        "differPairLenTolerMax": 10
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6367,
+      "id": "[\"RULE\",\"BLIND\",\"blindVia\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "blinds": {
+          "content": []
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6368,
+      "id": "[\"RULE\",\"RADIUS\",\"viaSize\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "minRadius": 9.8425,
+        "defRadius": 12.0079,
+        "maxRadius": 196.8504,
+        "minInner": 5.9055,
+        "defInner": 6.0039,
+        "maxInner": 124.0157
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6369,
+      "id": "[\"RULE\",\"PLANE\",\"innerPlane\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6370,
+      "id": "[\"RULE\",\"COPPER\",\"copperRegion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "sglPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIVERGENCE",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6371,
+      "id": "[\"RULE\",\"PASTE\",\"pasteMaskExpansion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "padTopExpan": 0,
+        "padBotExpan": 0,
+        "testPointTopExpan": -1000,
+        "testPointBotExpan": -1000
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6372,
+      "id": "[\"RULE\",\"SOLDER\",\"solderMaskExpansion\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mm",
+        "padTopExpan": 2,
+        "padBotExpan": 2,
+        "viaTopExpan": -1000,
+        "viaBotExpan": -1000,
+        "testPointTopExpan": 2,
+        "testPointBotExpan": 2
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 6373,
+      "id": "[\"RULE\",\"AUTO_ROUTER\",\"Common\"]"
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "routingCorner": "L45",
+        "isKeep": 1,
+        "viaQuantity": "LESS",
+        "routingEffectPriority": "COMPLETION_FIRST",
+        "layers": [
+          1,
+          2,
+          12
+        ],
+        "ignoreNets": []
+      }
+    }
+  }
+]

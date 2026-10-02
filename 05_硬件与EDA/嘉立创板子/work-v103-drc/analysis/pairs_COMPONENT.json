@@ -1,0 +1,1004 @@
+[
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 93,
+      "id": "d3cd236e9d787d59"
+    },
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": null
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5535,
+      "id": "889ba0ff839ec57c",
+      "firstTicket": 1203
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x8.1",
+      "x": 1025,
+      "y": -700,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 91
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5143,
+      "id": "768084a6c07f5263",
+      "firstTicket": 1261
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x8.1",
+      "x": 225,
+      "y": -560,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 104
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5585,
+      "id": "c752901be239e365",
+      "firstTicket": 1336
+    },
+    "body": {
+      "partId": "220S-1*7P H=8.5MM Ytype Gold-plated.1",
+      "x": 530,
+      "y": -325,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 114
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5028,
+      "id": "995eeb689675ace9",
+      "firstTicket": 1393
+    },
+    "body": {
+      "partId": "PM254V-11-03-H85.1",
+      "x": 285,
+      "y": -135,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 122
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5063,
+      "id": "9a40d5409e962377",
+      "firstTicket": 1405
+    },
+    "body": {
+      "partId": "PM254V-11-03-H85.1",
+      "x": 139.99999999999997,
+      "y": -135.00000000000003,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 123
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5098,
+      "id": "59517da08a361eaa",
+      "firstTicket": 1486
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x2.1",
+      "x": 170,
+      "y": -355,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 131
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5093,
+      "id": "95019b5db0fb5cd1",
+      "firstTicket": 1498
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x2.1",
+      "x": 170,
+      "y": -310,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 132
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5088,
+      "id": "2a8031a3826af7f7",
+      "firstTicket": 1510
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x2.1",
+      "x": 245,
+      "y": -305,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 133
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5083,
+      "id": "5fefe04b1e5043dc",
+      "firstTicket": 1522
+    },
+    "body": {
+      "partId": "Header-Female-2.54_1x2.1",
+      "x": 245,
+      "y": -355,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 134
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5570,
+      "id": "c1af423f3286bb53",
+      "firstTicket": 1679
+    },
+    "body": {
+      "partId": "GS009S-5.08-02P-11-00A(H).1",
+      "x": 1065,
+      "y": -530,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 145
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5013,
+      "id": "b486f4b362e3c505",
+      "firstTicket": 4130
+    },
+    "body": {
+      "partId": "M3螺丝.1",
+      "x": 190,
+      "y": -717,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 156
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5008,
+      "id": "c4bbec94b2b145a5",
+      "firstTicket": 4142
+    },
+    "body": {
+      "partId": "M3螺丝.1",
+      "x": 240,
+      "y": -732,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 157
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5003,
+      "id": "139f6dffbf8c118f",
+      "firstTicket": 4154
+    },
+    "body": {
+      "partId": "M3螺丝.1",
+      "x": 340,
+      "y": -732,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 158
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 4220,
+      "id": "3a553cc2855cc33a"
+    },
+    "body": {
+      "partId": "LAIL-PM2.54-22P-L.1",
+      "x": 695,
+      "y": -690,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 160
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 4232,
+      "id": "3b646ba1e64a34d6"
+    },
+    "body": {
+      "partId": "LAIL-PM2.54-22P-L.1",
+      "x": 465,
+      "y": -695,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 161
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 5633,
+      "id": "6fefd5d22730c9fa"
+    },
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 765,
+      "y": -440,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 214
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12408,
+      "id": "04600f82d7bdb35d"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 640,
+      "y": -495,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 233
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12420,
+      "id": "1cb1d0a6652d3505"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 640,
+      "y": -460,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 234
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12469,
+      "id": "3f2788cef18aac04"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 1005,
+      "y": -590,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 243
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12481,
+      "id": "06621ec4bfdb13bf"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 1035,
+      "y": -590.0000000000001,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 244
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12582,
+      "id": "5c0c44ba9b437900"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 559.9999999999998,
+      "y": -615,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 243
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12592,
+      "id": "0081a9aea0e85d89"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 560,
+      "y": -585,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 244
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12639,
+      "id": "f021e1efc1ae13eb"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 185,
+      "y": -95,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 233
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 12650,
+      "id": "16dd3bdd47d3f2d2"
+    },
+    "body": {
+      "partId": "CapAcitance.1",
+      "x": 185,
+      "y": -60,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 234
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19759,
+      "id": "fbd475308f55f5d0",
+      "firstTicket": 17075
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 1451.26,
+      "y": -2485,
+      "angle": 180,
+      "attrs": {
+        "Value": "10uf",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I31",
+        "Unique ID": "gge24"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19771,
+      "id": "02ed03f9c353f726",
+      "firstTicket": 17081
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 1448.74,
+      "y": -2370,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I32",
+        "Unique ID": "gge25"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18972,
+      "id": "e33778c331418204",
+      "firstTicket": 17087
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 118.494,
+      "y": -1533.7624,
+      "angle": 0,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I33",
+        "Unique ID": "gge26"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18978,
+      "id": "5ae693d5364f5993",
+      "firstTicket": 17093
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 113.793,
+      "y": -1643.7624,
+      "angle": 0,
+      "attrs": {
+        "Value": "10uf",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I34",
+        "Unique ID": "gge27"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19120,
+      "id": "c815347a3e24d5f7",
+      "firstTicket": 17099
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 826.315,
+      "y": -2116.0904,
+      "angle": 90,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I35",
+        "Unique ID": "gge28"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19126,
+      "id": "d751a866c0269b42",
+      "firstTicket": 17105
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 940,
+      "y": -2115,
+      "angle": 90,
+      "attrs": {
+        "Value": "10uf",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I36",
+        "Unique ID": "gge29"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19370,
+      "id": "327141ba20e8f76f",
+      "firstTicket": 17111
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 817.528,
+      "y": -384.9354,
+      "angle": 180,
+      "attrs": {
+        "Value": "10uf",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I37",
+        "Unique ID": "gge30"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19376,
+      "id": "ebe3bb985e93fdf8",
+      "firstTicket": 17117
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 817.528,
+      "y": -481.7704,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I38",
+        "Unique ID": "gge31"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 22026,
+      "id": "2d73821c790dc444",
+      "firstTicket": 17123
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 455,
+      "y": -1105.001,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I8",
+        "Name": "",
+        "Unique ID": "gge3"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19094,
+      "id": "5e67943fb1a00034",
+      "firstTicket": 17135
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 1565,
+      "y": -90,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I9",
+        "Name": "",
+        "Unique ID": "gge4"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18471,
+      "id": "c62c4cb37889b8e8",
+      "firstTicket": 17147
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 420,
+      "y": -1245,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I10",
+        "Name": "",
+        "Unique ID": "gge5"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 21707,
+      "id": "b5b577bd5f7f4263",
+      "firstTicket": 17158
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 590,
+      "y": -445,
+      "angle": 90,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I11",
+        "Name": "",
+        "Unique ID": "gge6"
+      },
+      "locked": true,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19909,
+      "id": "16454c869a86d8e2",
+      "firstTicket": 17165
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 2,
+      "x": 290,
+      "y": -445,
+      "angle": 270,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I12",
+        "Name": "",
+        "Unique ID": "gge7"
+      },
+      "locked": true,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19601,
+      "id": "5e80cd2d3cc0786a",
+      "firstTicket": 17172
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 805,
+      "y": -1450,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I13",
+        "Name": "",
+        "Unique ID": "gge8"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19620,
+      "id": "3bb5db03cde6d905",
+      "firstTicket": 17178
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 1775,
+      "y": -2480,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I14",
+        "Name": "",
+        "Unique ID": "gge9"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19595,
+      "id": "f783c17e2aaf8c7d",
+      "firstTicket": 17184
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 770,
+      "y": -1755,
+      "angle": 90,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I15",
+        "Name": "",
+        "Unique ID": "gge10"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19633,
+      "id": "86bd4eac3ca668a9",
+      "firstTicket": 17190
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 1775,
+      "y": -2365,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I16",
+        "Name": "",
+        "Unique ID": "gge11"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 24144,
+      "id": "85f528c755ff2f9e",
+      "firstTicket": 17200
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 2065,
+      "y": -2450,
+      "angle": 0,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I24",
+        "Unique ID": "gge18"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18126,
+      "id": "7b4558651c1d85aa",
+      "firstTicket": 17204
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 95,
+      "y": -95,
+      "angle": 0,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I25",
+        "Unique ID": "gge19"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18107,
+      "id": "0b2eff179fece165",
+      "firstTicket": 17208
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 95,
+      "y": -2450,
+      "angle": 0,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I26",
+        "Unique ID": "gge20"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 18101,
+      "id": "63fb4207e4eaa967",
+      "firstTicket": 17212
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 65,
+      "y": -1910,
+      "angle": 270,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I18",
+        "Unique ID": "gge12"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19034,
+      "id": "8701d4fa4d371f85",
+      "firstTicket": 17218
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 2075,
+      "y": -1130,
+      "angle": 270,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I27",
+        "Unique ID": "gge21"
+      },
+      "locked": true,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19433,
+      "id": "7c6b96e81a93ae65",
+      "firstTicket": 17245
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 1075,
+      "y": -1130,
+      "angle": 90,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I28",
+        "Unique ID": "gge22"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  },
+  {
+    "head": {
+      "type": "COMPONENT",
+      "ticket": 19202,
+      "id": "f09afed98e747bd8",
+      "firstTicket": 17272
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "layerId": 1,
+      "x": 875,
+      "y": -2425,
+      "angle": 180,
+      "attrs": {
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I30",
+        "Unique ID": "gge23"
+      },
+      "locked": false,
+      "zIndex": -1
+    }
+  }
+]

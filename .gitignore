@@ -1,0 +1,20 @@
+# 密钥和本机口令，不要进公开仓库
+secrets.local.h
+**/*.local.json
+**/.env
+**/.env.*
+
+# 编译结果里会带上本机密钥
+**/build/
+**/*.bin
+**/*.elf
+**/*.map
+
+# Python 环境
+**/.venv/
+**/__pycache__/
+**/*.pyc
+
+# 编辑器和系统
+.DS_Store
+Thumbs.db

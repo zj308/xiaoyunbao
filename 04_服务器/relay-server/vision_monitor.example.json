@@ -1,0 +1,8 @@
+{
+  "host": "你的服务器地址",
+  "user": "root",
+  "password": "",
+  "secret": "换成你自己的口令",
+  "port": 22,
+  "debug_port": 8001
+}

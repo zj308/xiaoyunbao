@@ -1,0 +1,155 @@
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html {
+  font-family: "Microsoft YaHei", "Noto Sans CJK SC", "SimSun", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #20242a;
+}
+
+body {
+  max-width: 178mm;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 1.2em 0 0.55em;
+  padding-bottom: 0.22em;
+  border-bottom: 1.5px solid #3973a6;
+  color: #173c5e;
+  font-size: 19pt;
+  page-break-after: avoid;
+}
+
+h2 {
+  margin: 1em 0 0.35em;
+  color: #24577f;
+  font-size: 14pt;
+  page-break-after: avoid;
+}
+
+h3 {
+  color: #2b5f86;
+  font-size: 11.5pt;
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0.35em 0 0.65em;
+  text-align: justify;
+}
+
+ul, ol {
+  margin: 0.35em 0 0.75em;
+  padding-left: 1.6em;
+}
+
+li {
+  margin: 0.18em 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.65em 0 1em;
+  font-size: 9.3pt;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #aebdca;
+  padding: 5px 7px;
+  vertical-align: top;
+}
+
+th {
+  background: #eaf1f7;
+  color: #173c5e;
+  font-weight: 600;
+}
+
+code {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9pt;
+  background: #f2f4f6;
+  padding: 0.08em 0.25em;
+  border-radius: 2px;
+}
+
+pre {
+  margin: 0.65em 0 1em;
+  padding: 9px 11px;
+  border-left: 3px solid #628db0;
+  background: #f4f6f8;
+  white-space: pre-wrap;
+  word-break: break-all;
+  page-break-inside: avoid;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+blockquote {
+  margin: 0.8em 0;
+  padding: 0.5em 0.9em;
+  border-left: 4px solid #3973a6;
+  background: #edf4f9;
+  color: #173c5e;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #bcc8d1;
+}
+
+header#title-block-header {
+  margin-top: 42mm;
+  margin-bottom: 30mm;
+  text-align: center;
+  page-break-after: always;
+}
+
+#title-block-header h1.title {
+  border: 0;
+  color: #173c5e;
+  font-size: 26pt;
+  line-height: 1.35;
+}
+
+#title-block-header .subtitle {
+  margin-top: 1.4em;
+  color: #526c81;
+  font-size: 14pt;
+  text-align: center;
+}
+
+#title-block-header .author,
+#title-block-header .date {
+  margin-top: 2em;
+  color: #53616c;
+  text-align: center;
+}
+
+@media print {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid-page;
+  }
+
+  pre, table, blockquote {
+    break-inside: avoid-page;
+  }
+}

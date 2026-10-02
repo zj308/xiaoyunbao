@@ -1,0 +1,36 @@
+[
+  {
+    "head": {
+      "type": "POUR",
+      "ticket": 24149,
+      "id": "0289b50091e0e561"
+    },
+    "body": {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR1",
+      "order": 0,
+      "path": [
+        [
+          "R",
+          0,
+          0,
+          2153.5433,
+          2543.3071,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  }
+]

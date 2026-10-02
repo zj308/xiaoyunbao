@@ -1,0 +1,84 @@
+[
+  {
+    "head": {
+      "type": "PREFERENCE",
+      "ticket": 93,
+      "id": "PREFERENCE"
+    },
+    "body": {
+      "startTrackWidthFollowLast": false,
+      "lastTrackWidth": 10,
+      "startViaSizeFollowLast": false,
+      "lastViaInnerDiameter": 24,
+      "lastViaDiameter": 12,
+      "snap": true,
+      "routingMode": "NONE",
+      "routingCorner": "L45",
+      "removeLoop": true,
+      "rotatingObject": true,
+      "trackFollow": false,
+      "stretchTrackMinCorner": 1,
+      "preferenceConfig": "",
+      "realTimeUpdateUnusedLayers": false,
+      "unusedPadRange": "ALL",
+      "pushVia": "OPTIMIZA_NONE",
+      "pathOptimization4BePushed": "SINGLE",
+      "currentPathOptimization4BePushed": "OPTIMIZA_NONE",
+      "removeCircuitsContainingVias": 1,
+      "removeAntenna": 1
+    }
+  },
+  {
+    "head": {
+      "type": "PREFERENCE",
+      "ticket": 131,
+      "id": "PREFERENCE"
+    },
+    "body": {
+      "startTrackWidthFollowLast": false,
+      "lastTrackWidth": 6,
+      "startViaSizeFollowLast": false,
+      "lastViaInnerDiameter": 12.0078,
+      "lastViaDiameter": 24.0158,
+      "snap": true,
+      "routingMode": "OBSTRUCT",
+      "routingCorner": "L45",
+      "removeLoop": true,
+      "rotatingObject": false,
+      "trackFollow": false,
+      "stretchTrackMinCorner": 1,
+      "realTimeUpdateUnusedLayers": false,
+      "unusedPadRange": "VIA",
+      "pathOptimization4BePushed": "SINGLE"
+    }
+  },
+  {
+    "head": {
+      "type": "PREFERENCE",
+      "ticket": 19990,
+      "id": "PREFERENCE",
+      "firstTicket": 6413
+    },
+    "body": {
+      "startTrackWidthFollowLast": false,
+      "lastTrackWidth": 10,
+      "startViaSizeFollowLast": false,
+      "lastViaInnerDiameter": 12.0078,
+      "lastViaDiameter": 24.0158,
+      "snap": true,
+      "routingMode": "SURROUND",
+      "routingCorner": "L45",
+      "removeLoop": true,
+      "rotatingObject": false,
+      "trackFollow": false,
+      "stretchTrackMinCorner": 1,
+      "realTimeUpdateUnusedLayers": false,
+      "unusedPadRange": "VIA",
+      "pushVia": "OPTIMIZA_OPEN",
+      "pathOptimization4BePushed": "SINGLE",
+      "currentPathOptimization4BePushed": "OPTIMIZA_WEAK",
+      "removeCircuitsContainingVias": true,
+      "removeAntenna": true
+    }
+  }
+]

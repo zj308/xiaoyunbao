@@ -1,0 +1,474 @@
+[
+  {
+    "type": "DOCHEAD",
+    "sample": {
+      "type": "DOCHEAD",
+      "ticket": 12407
+    }
+  },
+  {
+    "type": "FOOTPRINT",
+    "sample": {
+      "docType": "FOOTPRINT",
+      "client": "fca937f9d002ae05",
+      "uuid": "2c3f67befc4adbb6",
+      "updateTime": 1789044530626,
+      "version": "1720420805",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "2c3f67befc4adbb6"
+      }
+    }
+  },
+  {
+    "type": "LAYER",
+    "sample": {
+      "type": "LAYER",
+      "ticket": 1,
+      "id": "[\"LAYER\",1]"
+    }
+  },
+  {
+    "type": "?",
+    "sample": {
+      "layerType": "TOP",
+      "layerName": "Top Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#FF0000",
+      "activateTransparency": 1,
+      "inactiveColor": "#7F0000",
+      "inactiveTransparency": 1
+    }
+  },
+  {
+    "type": "ACTIVE_LAYER",
+    "sample": {
+      "type": "ACTIVE_LAYER",
+      "ticket": 21,
+      "id": "ACTIVE_LAYER"
+    }
+  },
+  {
+    "type": "CANVAS",
+    "sample": {
+      "type": "CANVAS",
+      "ticket": 22,
+      "id": "CANVAS"
+    }
+  },
+  {
+    "type": "ELE_PLACEHOLDER",
+    "sample": {
+      "type": "ELE_PLACEHOLDER",
+      "ticket": 23,
+      "id": "placeholder1"
+    }
+  },
+  {
+    "type": "FILL",
+    "sample": {
+      "type": "FILL",
+      "ticket": 24,
+      "id": "e1"
+    }
+  },
+  {
+    "type": "POLY",
+    "sample": {
+      "type": "POLY",
+      "ticket": 31,
+      "id": "e4"
+    }
+  },
+  {
+    "type": "PAD",
+    "sample": {
+      "type": "PAD",
+      "ticket": 43,
+      "id": "e15"
+    }
+  },
+  {
+    "type": "ATTR",
+    "sample": {
+      "type": "ATTR",
+      "ticket": 46,
+      "id": "e19"
+    }
+  },
+  {
+    "type": "META",
+    "sample": {
+      "type": "META",
+      "ticket": 12406,
+      "id": "META"
+    }
+  },
+  {
+    "type": "NET",
+    "sample": {
+      "type": "NET",
+      "ticket": 69,
+      "id": "[\"NET\",\"\"]"
+    }
+  },
+  {
+    "type": "PREFERENCE",
+    "sample": {
+      "type": "PREFERENCE",
+      "ticket": 93,
+      "id": "PREFERENCE"
+    }
+  },
+  {
+    "type": "LAYER_PHYS",
+    "sample": {
+      "type": "LAYER_PHYS",
+      "ticket": 94,
+      "id": "[\"LAYER_PHYS\",3]"
+    }
+  },
+  {
+    "type": "RULE_TEMPLATE",
+    "sample": {
+      "type": "RULE_TEMPLATE",
+      "ticket": 93,
+      "id": "RULE_TEMPLATE"
+    }
+  },
+  {
+    "type": "PRIMITIVE",
+    "sample": {
+      "type": "PRIMITIVE",
+      "ticket": 94,
+      "id": "[\"PRIMITIVE\",\"ALL\"]"
+    }
+  },
+  {
+    "type": "SILK_OPTS",
+    "sample": {
+      "type": "SILK_OPTS",
+      "ticket": 129,
+      "id": "[\"SILK_OPTS\",3]"
+    }
+  },
+  {
+    "type": "RULE",
+    "sample": {
+      "type": "RULE",
+      "ticket": 132,
+      "id": "[\"RULE\",\"SAFE\",\"safeClearance\"]"
+    }
+  },
+  {
+    "type": "RULE_SELECTOR",
+    "sample": {
+      "type": "RULE_SELECTOR",
+      "ticket": 146,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"\"]]"
+    }
+  },
+  {
+    "type": "PANELIZE",
+    "sample": {
+      "type": "PANELIZE",
+      "ticket": 147,
+      "id": "PANELIZE"
+    }
+  },
+  {
+    "type": "SYMBOL",
+    "sample": {
+      "docType": "SYMBOL",
+      "client": "fca937f9d002ae05",
+      "uuid": "4ee5199fa4d67663",
+      "updateTime": 1789044530462,
+      "version": "1763633989879",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "4ee5199fa4d67663"
+      }
+    }
+  },
+  {
+    "type": "PART",
+    "sample": {
+      "type": "PART",
+      "ticket": 2,
+      "id": "CapAcitance.1"
+    }
+  },
+  {
+    "type": "PIN",
+    "sample": {
+      "type": "PIN",
+      "ticket": 4,
+      "id": "e17"
+    }
+  },
+  {
+    "type": 2,
+    "sample": {
+      "title": "Capacitance",
+      "description": "",
+      "tags": [],
+      "docType": 2,
+      "source": "9b22c8ce281e45e586f53e833f42da4a|0819f05c4eef4c71ace90d822a990e87"
+    }
+  },
+  {
+    "type": 17,
+    "sample": {
+      "title": "Schematic1",
+      "tags": [],
+      "docType": 17,
+      "source": ""
+    }
+  },
+  {
+    "type": "RECT",
+    "sample": {
+      "type": "RECT",
+      "ticket": 6106,
+      "id": "5edc9a34c7e2501c"
+    }
+  },
+  {
+    "type": "ELLIPSE",
+    "sample": {
+      "type": "ELLIPSE",
+      "ticket": 4,
+      "id": "e1"
+    }
+  },
+  {
+    "type": "ARC",
+    "sample": {
+      "type": "ARC",
+      "ticket": 10,
+      "id": "e22"
+    }
+  },
+  {
+    "type": "OBJ",
+    "sample": {
+      "type": "OBJ",
+      "ticket": 206,
+      "id": "e163"
+    }
+  },
+  {
+    "type": 20,
+    "sample": {
+      "title": "Drawing-Symbol_A4",
+      "description": "",
+      "tags": [
+        "特殊器件"
+      ],
+      "docType": 20,
+      "source": "dae013dc9fb24993ad62a51f9f80d9cd|0819f05c4eef4c71ace90d822a990e87"
+    }
+  },
+  {
+    "type": "TABLE",
+    "sample": {
+      "type": "TABLE",
+      "ticket": 58,
+      "id": "e728"
+    }
+  },
+  {
+    "type": "DEVICE",
+    "sample": {
+      "docType": "DEVICE",
+      "client": "fca937f9d002ae05",
+      "uuid": "d5dea08ab88a4b94",
+      "updateTime": 1789044530628,
+      "version": "1670465870",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "d5dea08ab88a4b94"
+      }
+    }
+  },
+  {
+    "type": "BOARD",
+    "sample": {
+      "docType": "BOARD",
+      "client": "fca937f9d002ae05",
+      "uuid": "5ed0d834ef1120dc",
+      "updateTime": 1788359808548,
+      "version": "1788359808548",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "5ed0d834ef1120dc"
+      }
+    }
+  },
+  {
+    "type": "SCH",
+    "sample": {
+      "docType": "SCH",
+      "client": "fca937f9d002ae05",
+      "uuid": "ca53c51d1d206722",
+      "updateTime": 1789027456164,
+      "version": "1789027456164",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "ca53c51d1d206722"
+      }
+    }
+  },
+  {
+    "type": "SCH_PAGE",
+    "sample": {
+      "docType": "SCH_PAGE",
+      "client": "fca937f9d002ae05",
+      "uuid": "3d24d2419b4ec2ed",
+      "updateTime": 1789387833632,
+      "version": "1789387833632",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "3b36199824964585baafe2fd56cad673",
+        "nickname": "eda_lnswrlqk",
+        "username": "eda_lnswrlqk",
+        "avatar": "/image/avatar-default.png"
+      }
+    }
+  },
+  {
+    "type": "COMPONENT",
+    "sample": {
+      "type": "COMPONENT",
+      "ticket": 93,
+      "id": "d3cd236e9d787d59"
+    }
+  },
+  {
+    "type": "LINE",
+    "sample": {
+      "type": "LINE",
+      "ticket": 939,
+      "id": "4cc3d89b1e6fe9c1"
+    }
+  },
+  {
+    "type": "WIRE",
+    "sample": {
+      "type": "WIRE",
+      "ticket": 5538,
+      "id": "c41fe4bdca85aa32",
+      "firstTicket": 1225
+    }
+  },
+  {
+    "type": "PCB",
+    "sample": {
+      "docType": "PCB",
+      "client": "fca937f9d002ae05",
+      "uuid": "2c993d24c906d1cd",
+      "updateTime": 1789392492524,
+      "version": "1789392492524",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "3b36199824964585baafe2fd56cad673",
+        "nickname": "eda_lnswrlqk",
+        "username": "eda_lnswrlqk",
+        "avatar": "/image/avatar-default.png"
+      }
+    }
+  },
+  {
+    "type": "PAD_NET",
+    "sample": {
+      "type": "PAD_NET",
+      "ticket": 16362,
+      "id": "[\"PAD_NET\",\"8be253a35d66502a\",\"1\",\"e16\"]",
+      "firstTicket": 6460
+    }
+  },
+  {
+    "type": "POURED",
+    "sample": {
+      "type": "POURED",
+      "ticket": 14241,
+      "id": "[\"POURED\",\"90a573e007cebd02\"]"
+    }
+  },
+  {
+    "type": "TEARDROP",
+    "sample": {
+      "type": "TEARDROP",
+      "ticket": 19529,
+      "id": "9088afb97442e439"
+    }
+  },
+  {
+    "type": "VIA",
+    "sample": {
+      "type": "VIA",
+      "ticket": 23623,
+      "id": "3f2ebdcea0d36e35"
+    }
+  },
+  {
+    "type": "POUR",
+    "sample": {
+      "type": "POUR",
+      "ticket": 24149,
+      "id": "0289b50091e0e561"
+    }
+  },
+  {
+    "type": "CONFIG",
+    "sample": {
+      "docType": "CONFIG",
+      "client": "fca937f9d002ae05",
+      "uuid": "CONFIG",
+      "updateTime": 1788359809650,
+      "version": "1788359809650",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "CONFIG"
+      }
+    }
+  },
+  {
+    "type": "UNIVERSAL",
+    "sample": {
+      "type": "UNIVERSAL",
+      "ticket": 1,
+      "id": "UNIVERSAL"
+    }
+  },
+  {
+    "type": "PANEL",
+    "sample": {
+      "docType": "PANEL",
+      "client": "fca937f9d002ae05",
+      "uuid": "6fdc4e56359d70e5",
+      "updateTime": 1788359809242,
+      "version": "1788359809242",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "6fdc4e56359d70e5"
+      }
+    }
+  },
+  {
+    "type": "BLOB",
+    "sample": {
+      "docType": "BLOB",
+      "client": "fca937f9d002ae05",
+      "uuid": "BLOB",
+      "updateTime": 1788359909283,
+      "version": "1764610469",
+      "editVersion": "3.2.149.88089769",
+      "user": {
+        "uuid": "BLOB"
+      }
+    }
+  }
+]

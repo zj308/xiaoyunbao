@@ -1,0 +1,22 @@
+[
+  {
+    "head": {
+      "type": "RULE_TEMPLATE",
+      "ticket": 93,
+      "id": "RULE_TEMPLATE"
+    },
+    "body": {
+      "name": ""
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_TEMPLATE",
+      "ticket": 6357,
+      "id": "RULE_TEMPLATE"
+    },
+    "body": {
+      "name": "JLCPCB Capability(Two Layers Board)"
+    }
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "head": {
+      "type": "POURED",
+      "ticket": 14241,
+      "id": "[\"POURED\",\"90a573e007cebd02\"]"
+    },
+    "body": {
+      "pourFill": []
+    }
+  },
+  {
+    "head": {
+      "type": "POURED",
+      "ticket": 15910,
+      "id": "[\"POURED\",\"9b25ebc06f3ef24a\"]",
+      "firstTicket": 14245
+    },
+    "body": {
+      "pourFill": "<truncated 46381 chars>"
+    }
+  },
+  {
+    "head": {
+      "type": "POURED",
+      "ticket": 24150,
+      "id": "[\"POURED\",\"0289b50091e0e561\"]"
+    },
+    "body": {
+      "pourFill": "<truncated 49360 chars>"
+    }
+  }
+]

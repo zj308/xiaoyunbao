@@ -1,0 +1,8 @@
+{
+  "title": "立创板子-v103-drc-fix",
+  "cbb_project": false,
+  "editorVersion": "3.2.149.88089769",
+  "introduction": "GND pour/outline DRC fix: moved board outline onto circuit, added bottom GND pour.",
+  "description": "",
+  "tags": "[]"
+}

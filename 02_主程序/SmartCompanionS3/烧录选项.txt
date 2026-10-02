@@ -1,0 +1,18 @@
+不要选 Ozobot 或其它开发板。本工程只支持：
+
+开发板：ESP32S3 Dev Module
+PSRAM：OPI PSRAM
+Flash Mode：QIO 80MHz
+Flash Size：16MB (128Mb)
+Partition Scheme：16M Flash (3MB APP/9.9MB FATFS)
+CPU Frequency：240MHz (WiFi)
+USB Mode：Hardware CDC and JTAG
+USB CDC On Boot：Enabled
+Upload Speed：921600
+
+下面三项选错会直接编不过或烧进去不能用：
+- Partition Scheme 不能是 Default 4MB（上限只有 1,310,720 字节）
+- PSRAM 不能是 Disabled，必须是 OPI PSRAM
+- USB CDC On Boot 必须是 Enabled，不能是 Default
+
+Arduino IDE 2.x 若出现 ctags: cannot open temporary file，先关掉 IDE，再确认上面选项后重编。工程路径含中文时 IDE 2.x 更容易触发这个错误，可用 Arduino IDE 1.8.19。
